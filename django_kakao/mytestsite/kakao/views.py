@@ -46,14 +46,14 @@ def index(request):
     return render(request, 'index.html', _context)
 
 def kakaoLoginLogic(request):
-    _restApiKey = '' # 입력필요
+    _restApiKey = 'a49d41e534482cb5fb6e0e96644836de' # 입력필요
     _redirectUrl = 'http://127.0.0.1:8000/kakaoLoginLogicRedirect'
     _url = f'https://kauth.kakao.com/oauth/authorize?client_id={_restApiKey}&redirect_uri={_redirectUrl}&response_type=code'
     return redirect(_url)
 
 def kakaoLoginLogicRedirect(request):
     _qs = request.GET['code']
-    _restApiKey = '' # 입력필요
+    _restApiKey = 'a49d41e534482cb5fb6e0e96644836de' # 입력필요
     _redirect_uri = 'http://127.0.0.1:8000/kakaoLoginLogicRedirect'
     _url = f'https://kauth.kakao.com/oauth/token?grant_type=authorization_code&client_id={_restApiKey}&redirect_uri={_redirect_uri}&code={_qs}'
     _res = requests.post(_url)
@@ -82,7 +82,7 @@ def kakaoLogout(request):
 def kakaoPay(request):
     return render(request, 'kakaopay.html')
 def kakaoPayLogic(request):
-    _admin_key = '' # 입력필요
+    _admin_key = 'c5996373007a1076c7f57e3a519ebd11' # 입력필요
     _url = f'https://kapi.kakao.com/v1/payment/ready'
     _headers = {
         'Authorization': f'KakaoAK {_admin_key}',
@@ -108,7 +108,7 @@ def kakaoPayLogic(request):
     return redirect(_result['next_redirect_pc_url'])
 def paySuccess(request):
     _url = 'https://kapi.kakao.com/v1/payment/approve'
-    _admin_key = '' # 입력필요
+    _admin_key = 'c5996373007a1076c7f57e3a519ebd11' # 입력필요
     _headers = {
         'Authorization': f'KakaoAK {_admin_key}'
     }
@@ -134,7 +134,7 @@ def paySuccess(request):
 
 # Flutter & Djnago
 def kakaoPayLogic2(request):
-    _admin_key = '' # 입력필요
+    _admin_key = 'c5996373007a1076c7f57e3a519ebd11' # 입력필요
     _url = f'https://kapi.kakao.com/v1/payment/ready'
     _headers = {
         'Authorization': f'KakaoAK {_admin_key}',
@@ -160,7 +160,7 @@ def kakaoPayLogic2(request):
     return redirect(_result['next_redirect_pc_url'])
 def paySuccess2(request):
     _url = 'https://kapi.kakao.com/v1/payment/approve'
-    _admin_key = '' # 입력필요
+    _admin_key = 'c5996373007a1076c7f57e3a519ebd11' # 입력필요
     _headers = {
         'Authorization': f'KakaoAK {_admin_key}'
     }
